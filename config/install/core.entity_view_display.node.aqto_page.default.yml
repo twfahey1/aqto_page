@@ -4,7 +4,29 @@ dependencies:
   config:
     - node.type.aqto_page
   module:
+    - layout_builder
     - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          985a2f9d-5bff-483d-9f97-9ef022b93a0d:
+            uuid: 985a2f9d-5bff-483d-9f97-9ef022b93a0d
+            region: content
+            configuration:
+              id: 'extra_field_block:node:aqto_page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
 id: node.aqto_page.default
 targetEntityType: node
 bundle: aqto_page
@@ -15,4 +37,6 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  display_breadcrumbs: true
+  display_page_title: true

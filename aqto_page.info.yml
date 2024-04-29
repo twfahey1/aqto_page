@@ -3,7 +3,10 @@ description: "The Aqto Page provides a blank canvas for building site content th
 type: module
 core_version_requirement: '^9.4 || ^10'
 dependencies:
+  - 'aqto_page:aqto_page'
   - 'breadcrumbs_visibility:breadcrumbs_visibility'
+  - 'drupal:field'
+  - 'drupal:layout_builder'
   - 'drupal:menu_ui'
   - 'drupal:node'
   - 'drupal:path'
