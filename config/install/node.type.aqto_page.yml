@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Aqto Page'
+type: aqto_page
+description: 'The Aqto page provides a flexible foundation for site content.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
