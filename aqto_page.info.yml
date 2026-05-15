@@ -1,7 +1,7 @@
 name: 'Aqto Page'
 description: "The Aqto Page provides a blank canvas for building site content that is freeform and flexible in it's layout and design."
 type: module
-core_version_requirement: '^9.4 || ^10'
+core_version_requirement: '^9.4 || ^10 || ^11'
 dependencies:
   - 'aqto_page:aqto_page'
   - 'breadcrumbs_visibility:breadcrumbs_visibility'
