@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.aqto_page
+  module:
+    - page_title_visibility
+id: node.aqto_page.display_page_title
+field_name: display_page_title
+entity_type: node
+bundle: aqto_page
+label: 'Display page title'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

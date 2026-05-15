@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Install and update hooks for Aqto Page.
+ */
+
+use Drupal\Core\Field\Entity\BaseFieldOverride;
+
+/**
+ * Implements hook_install().
+ */
+function aqto_page_install(): void {
+  _aqto_page_ensure_page_title_visibility_default();
+}
+
+/**
+ * Ensure Aqto Page defaults to hiding the page title.
+ */
+function aqto_page_update_10001(): void {
+  _aqto_page_ensure_page_title_visibility_default();
+}
+
+/**
+ * Keeps Aqto Page aligned with page_title_visibility defaults.
+ */
+function _aqto_page_ensure_page_title_visibility_default(): void {
+  if (!\Drupal::moduleHandler()->moduleExists('page_title_visibility')) {
+    return;
+  }
+
+  \Drupal::configFactory()
+    ->getEditable('page_title_visibility.content_type.aqto_page')
+    ->set('display_page_title', FALSE)
+    ->save(TRUE);
+
+  $override = BaseFieldOverride::loadByName('node', 'aqto_page', 'display_page_title');
+  if (!$override) {
+    $base_fields = \Drupal::service('entity_field.manager')->getBaseFieldDefinitions('node');
+    if (!isset($base_fields['display_page_title'])) {
+      return;
+    }
+    $override = BaseFieldOverride::createFromBaseFieldDefinition($base_fields['display_page_title'], 'aqto_page');
+  }
+
+  $override
+    ->setDefaultValue(FALSE)
+    ->save();
+}
